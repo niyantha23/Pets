@@ -32,28 +32,12 @@ import android.widget.Toast;
 
 import com.example.android.pets.data.PetContract.PetEntry;
 
-/**
- * Allows user to create a new pet or edit an existing one.
- */
 public class EditorActivity extends AppCompatActivity {
-
-    /** EditText field to enter the pet's name */
     private EditText mNameEditText;
 
-    /** EditText field to enter the pet's breed */
     private EditText mBreedEditText;
-
-    /** EditText field to enter the pet's weight */
     private EditText mWeightEditText;
-
-    /** EditText field to enter the pet's gender */
     private Spinner mGenderSpinner;
-
-    /**
-     * Gender of the pet. The possible valid values are in the PetContract.java file:
-     * {@link PetEntry#GENDER_UNKNOWN}, {@link PetEntry#GENDER_MALE}, or
-     * {@link PetEntry#GENDER_FEMALE}.
-     */
     private int mGender = PetEntry.GENDER_UNKNOWN;
 
     @Override
@@ -109,33 +93,6 @@ public class EditorActivity extends AppCompatActivity {
         });
     }
 
-    /**
-     * Get user input from editor and save new pet into database.
-     */
-    private void insertPet() {
-        // Read from input fields
-        // Use trim to eliminate leading or trailing white space
-        String nameString = mNameEditText.getText().toString().trim();
-        String breedString = mBreedEditText.getText().toString().trim();
-        String weightString = mWeightEditText.getText().toString().trim();
-        int weight = Integer.parseInt(weightString);
-
-        // Create database helper
-
-
-        // Gets the database in write mode
-
-
-        // Create a ContentValues object where column names are the keys,
-        // and pet attributes from the editor are the values.
-        ContentValues values = new ContentValues();
-        values.put(PetEntry.COLUMN_PET_NAME, nameString);
-        values.put(PetEntry.COLUMN_PET_BREED, breedString);
-        values.put(PetEntry.COLUMN_PET_GENDER, mGender);
-        values.put(PetEntry.COLUMN_PET_WEIGHT, weight);
-
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -152,7 +109,7 @@ public class EditorActivity extends AppCompatActivity {
             // Respond to a click on the "Save" menu option
             case R.id.action_save:
                 // Save pet to database
-                insertPet();
+
                 // Exit activity
                 finish();
                 return true;
