@@ -92,6 +92,8 @@ public class CatalogActivity extends AppCompatActivity {
 
               // Setup an Adapter to create a list item for each row of pet data in the Cursor.
         // There is no pet data yet (until the loader finishes) so pass in null for the Cursor.
+        View emptyView = findViewById(R.id.empty_view);
+        petListView.setEmptyView(emptyView);
        PetCursorAdapter adapter = new PetCursorAdapter(this, cursor);
         petListView.setAdapter(adapter);
     }
